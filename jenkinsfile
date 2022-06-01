@@ -1,0 +1,15 @@
+pipeline{
+    agent{ label "python" }
+    stages{
+        stage ('Configure source code'){
+            steps{
+                
+            }
+        }
+        stage ('Install dependcies for python project'){
+            steps{
+                ansiblePlaybook become: true, disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory', playbook: 'python-playbook.yml'
+            }
+        }
+    }
+}
