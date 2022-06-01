@@ -1,9 +1,8 @@
 pipeline{
-    agent{ label "python" }
     stages{
         stage ('Configure source code'){
             steps{
-                
+                git branch: 'main', url: 'https://github.com/PJWesley7/jenkins_python.git'
             }
         }
         stage ('Install dependcies for python project'){
