@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Run Python'){
             steps{
-                sh 'FLASK_APP=nohup /workspace/Python_build/app.py flask run --host=0.0.0.0 &'
+                sh 'FLASK_APP=app.py flask run --host=0.0.0.0 &'
             }
         }
         
