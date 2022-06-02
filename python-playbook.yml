@@ -11,7 +11,7 @@
           - python3-dev
           - build-essential
           - python3-pip
-          - python-mysqldb
+          - python3-mysqldb
           - mysql-server
           - mysql-client
         state: present
