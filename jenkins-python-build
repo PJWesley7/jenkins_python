@@ -6,13 +6,7 @@ pipeline{
                 git 'https://github.com/mmumshad/simple-webapp.git'
             }
         }
-        stage('Run Python'){
-            steps{
-                sh 'FLASK_APP=app.py flask run --host=0.0.0.0 &'
-            }
-        }
-        
-        stage ('Upload packages') {
+                stage ('Upload packages') {
             steps {
                 rtUpload (
                     serverId: "JFROG_LOCAL",
@@ -27,5 +21,11 @@ pipeline{
                 )
             }
         }
+        stage('Run Python'){
+            steps{
+                sh 'FLASK_APP=app.py flask run --host=0.0.0.0 &'
+            }
+        }
+        
     }
 }
