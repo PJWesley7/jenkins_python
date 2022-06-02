@@ -10,14 +10,14 @@ pipeline{
             steps {
                 rtUpload (
                     serverId: "JFROG_LOCAL",
-                    spec: '''{
+                    spec: {
                         "files": [
                             {
                                 "pattern": "app.py",
                                 "target": "python-pypi-local/"
                             }
                         ]
-                    }'''
+                    }
                 )
             }
         }
