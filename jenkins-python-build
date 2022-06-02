@@ -6,14 +6,14 @@ pipeline{
                 git 'https://github.com/mmumshad/simple-webapp.git'
             }
         }
-                stage ('Upload packages') {
+        stage ('Upload packages') {
             steps {
                 rtUpload (
                     serverId: "JFROG_LOCAL",
                     spec: '''{
                         "files": [
                             {
-                                "pattern": "/workspace/Python_build/app.py",
+                                "pattern": "app.py",
                                 "target": "python-pypi-local/"
                             }
                         ]
