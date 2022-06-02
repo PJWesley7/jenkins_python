@@ -1,0 +1,10 @@
+pipeline{
+    agent{label"node"}
+    stages{
+        stage('Gir repo'){
+            steps{
+                
+            }
+        }
+    }
+}

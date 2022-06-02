@@ -5,5 +5,22 @@
   tasks:
     - name: Install pip package
       apt:
-        name: python3-pip
+        name:
+          - python3-pip
+          - python3-setuptools
+          - python3-dev
+          - build-essential
+          - python3-pip
+          - python-mysqldb
+          - mysql-server
+          - mysql-client
         state: present
+    - name: Start mysql
+      systemd:
+        name: mysql
+        state: started
+    - name: Install bottle python package
+      pip:
+        name:
+          - flask
+          - flask-mysql
