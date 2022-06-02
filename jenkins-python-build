@@ -3,7 +3,28 @@ pipeline{
     stages{
         stage('Gir repo'){
             steps{
-                
+                git 'https://github.com/mmumshad/simple-webapp.git'
+            }
+        }
+        stage('Run Python'){
+            steps{
+                sh 'FLASK_APP=app.py flask run --host=0.0.0.0'
+            }
+        }
+        
+        stage ('Upload packages') {
+            steps {
+                rtUpload (
+                    serverId: "JFROG_LOCAL",
+                    spec: {
+                        "files": [
+                            {
+                                "pattern": "app.py",
+                                "target": "python-pypi-local/"
+                            }
+                        ]
+                    }
+                )
             }
         }
     }
